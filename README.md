@@ -74,39 +74,39 @@
 ## 📊 GitHub Statistics
 
 #### Score
-<a href="https://github.com/valentine-ochieng/valentine-ochieng">
-  <img align="center" src="https://github-readme-stats.vercel.app/api?username=valentine-ochieng&show_icons=true&line_height=27&count_private=true&title_color=f48c06&text_color=c9cacc&icon_color=2bbc8a&bg_color=000000" alt="Bryan's GitHub Stats" />
+<a href="https://github.com/Valentino-Junior/Valentino-Junior">
+  <img align="center" src="https://github-readme-stats.vercel.app/api?username=Valentino-Junior&show_icons=true&line_height=27&count_private=true&title_color=f48c06&text_color=c9cacc&icon_color=2bbc8a&bg_color=000000" alt="Bryan's GitHub Stats" />
 </a>
 
 #### Languages
           
-  <a href="https://github.com/valentine-ochieng/github-readme-stats">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=valentine-ochieng&theme=highcontrast" />
+  <a href="https://github.com/Valentino-Junior/github-readme-stats">
+  <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Valentino-Junior&theme=highcontrast" />
 </a>
 
 #### Consistency:
 
-[![GitHub Streak](https://streak-stats.demolab.com?user=valentine-ochieng&theme=highcontrast)](https://git.io/streak-stats)
+[![GitHub Streak](https://streak-stats.demolab.com?user=Valentino-Junior&theme=highcontrast)](https://git.io/streak-stats)
 
 
 ### Achievements: 
-<img align="center" src="https://github-profile-trophy.vercel.app/?username=valentine-ochieng&margin-w=15&margin-h=15" />
+<img align="center" src="https://github-profile-trophy.vercel.app/?username=Valentino-Junior&margin-w=15&margin-h=15" />
 
 
 
 
 ## 📫 Contact Information:
 Email me via <a href="mailto:ojvalentine14@gmail.com"> ojvalentine14@gmail.com <br>
-[Linkedin](https://www.linkedin.com/in/valentine-ochieng-08164a138/)
+[Linkedin](https://www.linkedin.com/in/Valentine-Junior-08164a138/)
 <p align="center">
-  <a href="https://github.com/valentine-ochieng/readme-typing-svg"><img src="https://readme-typing-svg.herokuapp.com/?lines=Email%20me%20via%20ojvalentine14@gmail.com;I%20am%20ready%20to%20work%20with%20you!;&font=Fira%20Code&center=true&width=440&height=45&color=FFFFFF&vCenter=true&size=22"></a>
+  <a href="https://github.com/Valentino-Junior/readme-typing-svg"><img src="https://readme-typing-svg.herokuapp.com/?lines=Email%20me%20via%20ojvalentine14@gmail.com;I%20am%20ready%20to%20work%20with%20you!;&font=Fira%20Code&center=true&width=440&height=45&color=FFFFFF&vCenter=true&size=22"></a>
 </p>
 
 
-<p> Developer Valentine Ochieng</p>
+<p> Developer Valentino Junior</p>
     
 ## Current Project ⚕
 <br>![](https://img.shields.io/badge/Web-apps-FE7A16?style=for-the-badge&logo=google-chrome&logoColor=white)
 ![](https://img.shields.io/badge/development-FE7A16?style=for-the-badge&logo=ubuntu&logoColor=white)
 
-<p align="center"> <img src="https://komarev.com/ghpvc/?username=valentine-ochieng&label=Profile%20viewers:&color=FE7A16&style=for-the-badge" alt="valentine-ochieng" /> </p>
+<p align="center"> <img src="https://komarev.com/ghpvc/?username=Valentino-Junior&label=Profile%20viewers:&color=FE7A16&style=for-the-badge" alt="Valentino-Junior" /> </p>
