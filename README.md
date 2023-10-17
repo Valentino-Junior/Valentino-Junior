@@ -52,7 +52,8 @@
 ![](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white) ![](https://img.shields.io/badge/SQLITE-4EA94B?style=for-the-badge&logo=sqlite&logoColor=white) ![](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)  
 
 ## ☁ Cloud Technologies
-![](https://img.shields.io/badge/github_pages-232F3E?style=for-the-badge&logo=github&logoColor=white) ![](	https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white) ![](	https://img.shields.io/badge/AWS-430098?style=for-the-badge&logo=AWS&logoColor=white) 
+![](https://img.shields.io/badge/github_pages-232F3E?style=for-the-badge&logo=github&logoColor=white) ![](	https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white) ![](	https://img.shields.io/badge/AWS-430098?style=for-the-badge&logo=AWS&logoColor=white)  ![]( ![Microsoft Azure](https://img.shields.io/badge/Microsoft%20Azure-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)
+
 
 ## 💻 Operating Systems
 ![](https://img.shields.io/badge/ubuntu-87CF3E?style=for-the-badge&logo=ubuntu&logoColor=ff6d00) ![](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
