@@ -1,245 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
-        type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #333;
+      background-color: #f8f9fa;
+    }
 
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+    }
+
+    .navbar {
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      padding: 20px 0;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .nav-link {
+      font-size: 18px;
+      color: #333;
+      margin-left: 20px;
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover {
+      color: #007bff;
+    }
+
+    header {
+      background: linear-gradient(135deg, #007bff, #00c6ff);
+      color: #fff;
+      padding: 120px 0;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .lead {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+
+    .btn-primary {
+      background-color: #fff;
+      color: #007bff;
+      border-color: #fff;
+      font-size: 18px;
+      padding: 12px 30px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    .project {
+      padding: 100px 0;
+    }
+
+    .project-title {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .project-description {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .project-image {
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-image:hover {
+      transform: scale(1.05);
+    }
+
+    .carousel-item {
+      transition: transform 1s ease-in-out;
+    }
+
+    .contact-info {
+      background-color: #007bff;
+      color: #fff;
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .contact-info h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    .contact-info p {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .contact-info a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-info a:hover {
+      color: #f8f9fa;
+    }
+
+    @media (max-width: 767px) {
+      h1 {
+        font-size: 36px;
+      }
+      .lead {
+        font-size: 20px;
+      }
+      .project-title {
+        font-size: 30px;
+      }
+    }
+  </style>
 </head>
-
-<body id="page-top">
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">
-            <span class="d-block d-lg-none">Valentine Ochieng</span>
-            <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2"
-                    src="assets/img/vb.jpg" alt="..." /></span>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Recent Projects</a></li>
-            </ul>
-        </div>
-    </nav>
-    <!-- Page Content-->
-    <div class="container-fluid p-0">
-        <!-- About-->
-        <section class="resume-section" id="about">
-            <div class="resume-section-content">
-                <h1 class="mb-0">
-                    Valentine
-                    <span class="text-primary">Ochieng</span>
-                </h1>
-                <div class="subheading mb-5">
-                    (+254) 703432696
-                    <a href="mailto:ojvalentine14@gmail.com">ojvalentine14@gmail.com</a>
-                </div>
-                <p class="lead mb-5">I am a software developer dedicated to improving skills through hands-on learning
-                    and development
-                    work. Proficient in desktop development environments. Adept at using HTML, CSS, JavaScript,
-                    Angular, Python, SQL and other programming tools to produce clean code. Thrives and adapts
-                    to challenges in startup environments. Well-organized and collaborative team player with
-                    strong communication and analytical abilities.</p>
-                <div class="social-icons">
-                    <a class="social-icon" href="https://www.linkedin.com/in/valentine-ochieng-08164a138/"><i
-                            class="fab fa-linkedin-in"></i></a>
-                    <a class="social-icon" href="https://github.com/valentine-ochieng"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </section>
-
-        <hr class="m-0" />
-        <hr class="m-0" />
-        <!-- Education-->
-        <section class="resume-section" id="education">
-            <div class="resume-section-content">
-                <h2 class="mb-5">Education</h2>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <h4 class="mb-0">MORINGA SCHOOL</h4>
-                        <p>Software Development</p>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary">July 2021 - February 2022</span></div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between">
-                    <div class="flex-grow-1">
-                        <h4 class="mb-0">University OF NAIROBI</h4>
-                        <p>BSC. Agricultural Economics</p>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary">September 2016 - September 2020</span></div>
-                </div>
-            </div>
-        </section>
-        <hr class="m-0" />
-        <!-- Skills-->
-        <section class="resume-section" >
-            <div class="resume-section-content">
-                <h2 class="mb-5" id="skills">Skills</h2>
-                <div class="subheading mb-3">Programming Languages & Tools</div>
-                <ul class="list-inline dev-icons">
-                    
-                    <li class="list-inline-item"><img src="assets/img/html.png"></i></li>
-                    <li class="list-inline-item"><img src="assets/img/css3.png"></i></li>
-                    <li class="list-inline-item"><img src="assets/img/bootstrap.png"></i></li>
-                    <li class="list-inline-item"><img src="assets/img/jsblue.png"></i></li>
-                    <li class="list-inline-item"><img src="assets/img/npm.png"></i></li>
-                    <li class="list-inline-item"><img src="assets/img/angular.png"></i></li>
-                    <li class="list-inline-item"><img src="assets/img/flask.png"></i></li>
-                    <li class="list-inline-item"><img src="assets/img/django.png"></i></li>
-                    <li class="list-inline-item"><img src="assets/img/postgre.png"></i></li>
-                    <li class="list-inline-item"><img src="assets/img/sql.png"></i></li>
-                    <li class="list-inline-item"><img src="assets/img/linux.png"></i></li>
-                    <li class="list-inline-item"><img src="assets/img/visual-studio.png"></i></li>
-                    <li class="list-inline-item"><img src="assets/img/figma.png"></i></li>
-                    <li class="list-inline-item"><img src="assets/img/git.png"></i></li>
-                    <li class="list-inline-item"><img src="assets/img/trello.png"></i></li>
-                    <li class="list-inline-item"><img src="assets/img/jira.png"></i></li>
-
-
-
-
-                </ul>
-                <div class="subheading mb-3">Workflow</div>
-                <ul class="fa-ul mb-0">
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        Web-First, Responsive Design
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        Cross Browser Testing & Debugging
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        Ability to Work in a Team
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        Interpersonal communication skills
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        Ability to Work Under Pressure
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        Time Management
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        Fast Learner
-                    </li> 
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        Leadership
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <hr class="m-0" />
-        <!-- Interests-->
-        <section class="resume-section" id="interests">
-            <div class="resume-section-content">
-                <h2 class="mb-5">Interests</h2>
-                <p>Apart from programming i am martial art expert and one of my hobbies is working out.The gym helps me
-                    clear my mind while also keeping me mentally fit. It also aids me in getting a better night's sleep.
-                    Moreover, i love listening to music while exercising, reading and coding, thus it aids me easen
-                    tension</p>
-                <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television
-                    shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest
-                    technology advancements in the web development world.</p>
-            </div>
-        </section>
-        <hr class="m-0" />
-
-        <!-- Portfolio-->
-        <section class="content-section" >
-            <div class="container px-4 px-lg-5">
-                <div class="content-section-heading text-center">
-                    <h2 class="mb-5 d-flex justify-content-start" id="experience">Recent Projects</h2>
-                </div>
-                <div class="row gx-0">
-                    <div class="col-lg-6">
-                        <a class="portfolio-item" href="https://extravaganzaawards.herokuapp.com/">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <p class="mb-0">Extravaganza Awards is a website where users can create an account,
-                                        log in, and submit a
-                                        project for others to examine and rate.</p>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/Extravaganza.png" alt="..." />
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a class="portfolio-item" href="https://ulinzihood.herokuapp.com/">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <p class="mb-0">Ulinzihood is a web application that keeps users informed about
-                                        what's going on in their
-                                        neighborhood.</p>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/hood.png" alt="..." />
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a class="portfolio-item" href="https://elibraria.herokuapp.com/">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <p class="mb-0">E-libraria is an online Library application that will make books of
-                                        most categories, if not all,
-                                        available to everyone.<p>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/elibraria.png" alt="..." />
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a class="portfolio-item" href="https://valentine-ochieng.github.io/Interior-Design-Website/">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <p class="mb-0">Influenza interior design and styling is web application where
-                                        clients are able to request a
-                                        quatation of the interior design service of their houses or rooms and order or
-                                        request for the
-                                        service.</p>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/interior.png" alt="..." />
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
-</body>
+  </nav>
 
+  <header>
+    <div class="container">
+      <h1 class="animate__animated animate__fadeInDown">Valentine Junior</h1>
+      <p class="lead animate__animated animate__fadeIn">Full Stack Developer | Mobile Developer | Data Analyst</p>
+      <a href="#projects" class="btn btn-primary animate__animated animate__fadeIn">View Projects</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="projects" class="project">
+      <h2 class="text-center mb-5 animate__animated animate__fadeIn">Projects</h2>
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="card h-100 animate__animated animate__fadeInUp">
+            <div id="project1Carousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="/api/placeholder/600/400" alt="Project Screenshot" class="d-block w-100 project-image">
+                </div>
+                <div class="carousel-item">
+                  <img src="/api/placeholder/600/400" alt="Project Screenshot" class="d-block w-100 project-image">
+                </div>
+                <div class="carousel-item">
+                  <img src="/api/placeholder/600/400" alt="Project Screenshot" class="d-block w-100 project-image">
+                </div>
+                <div class="carousel-item">
+                  <img src="/api/placeholder/600/400" alt="Project Screenshot" class="d-block w-100 project-image">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#project1Carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#project1Carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Vesuto Diagnotics</h3>
+              <p class="card-text">Project description goes here. Explain the technologies used, features implemented, and the problem it solves.</p>
+              <a href="#" class="btn btn-primary">View Project</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card h-100 animate__animated animate__fadeInUp">
+            <div id="project2Carousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="/api/placeholder/600/400" alt="Project Screenshot" class="d-block w-100 project-image">
+                </div>
+                <div class="carousel-item">
+                  <img src="/api/placeholder/600/400" alt="Project Screenshot" class="d-block w-100 project-image">
+                </div>
+                <div class="carousel-item">
+                  <img src="/api/placeholder/600/400" alt="Project Screenshot" class="d-block w-100 project-image">
+                </div>
+                <div class="carousel-item">
+                  <img src="/api/placeholder/600/400" alt="Project Screenshot" class="d-block w-100 project-image">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#project2Carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#project2Carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Project Title</h3>
+              <p class="card-text">Project description goes here. Explain the technologies used, features implemented, and the problem it solves.</p>
+              <a href="#" class="btn btn-primary">View Project</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card h-100 animate__animated animate__fadeInUp">
+            <div id="project3Carousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="/api/placeholder/600/400" alt="Project Screenshot" class="d-block w-100 project-image">
+                </div>
+                <div class="carousel-item">
+                  <img src="/api/placeholder/600/400" alt="Project Screenshot" class="d-block w-100 project-image">
+                </div>
+                <div class="carousel-item">
+                  <img src="/api/placeholder/600/400" alt="Project Screenshot" class="d-block w-100 project-image">
+                </div>
+                <div class="carousel-item">
+                  <img src="/api/placeholder/600/400" alt="Project Screenshot" class="d-block w-100 project-image">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#project3Carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#project3Carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Project Title</h3>
+              <p class="card-text">Project description goes here. Explain the technologies used, features implemented, and the problem it solves.</p>
+              <a href="#" class="btn btn-primary">View Project</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card h-100 animate__animated animate__fadeInUp">
+            <div id="project4Carousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="/api/placeholder/600/400" alt="Project Screenshot" class="d-block w-100 project-image">
+                </div>
+                <div class="carousel-item">
+                  <img src="/api/placeholder/600/400" alt="Project Screenshot" class="d-block w-100 project-image">
+                </div>
+                <div class="carousel-item">
+                  <img src="/api/placeholder/600/400" alt="Project Screenshot" class="d-block w-100 project-image">
+                </div>
+                <div class="carousel-item">
+                  <img src="/api/placeholder/600/400" alt="Project Screenshot" class="d-block w-100 project-image">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#project4Carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#project4Carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Project Title</h3>
+              <p class="card-text">Project description goes here. Explain the technologies used, features implemented, and the problem it solves.</p>
+              <a href="#" class="btn btn-primary">View Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="contact-info">
+    <div class="container">
+      <h2 class="animate__animated animate__fadeIn">Get In Touch</h2>
+      <p class="animate__animated animate__fadeInUp"><i class="fas fa-envelope"></i> <a href="mailto:yourname@example.com">yourname@example.com</a></p>
+      <p class="animate__animated animate__fadeInUp"><i class="fas fa-phone"></i> <a href="tel:1234567890">(123) 456-7890</a></p>
+      <p class="animate__animated animate__fadeInUp"><i class="fas fa-map-marker-alt"></i> City, Country</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</body>
 </html>
