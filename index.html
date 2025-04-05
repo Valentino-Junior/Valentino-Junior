@@ -1649,6 +1649,339 @@
         }
     </style>
 
+    <!-- project styling -->
+    <style>
+        /* Projects Section Styling */
+        .projects {
+            background-color: var(--light);
+            position: relative;
+            padding: 100px 0;
+            overflow: hidden;
+        }
+        
+        .projects::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 60%;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.03) 0%, rgba(0, 217, 255, 0.05) 100%);
+            border-radius: 0 0 0 100%;
+            z-index: 1;
+        }
+        
+        .section-header {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 60px;
+        }
+        
+        .title-bar {
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            margin: 20px auto;
+            position: relative;
+            border-radius: 2px;
+        }
+        
+        .title-bar::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 0;
+            width: 10px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .title-bar::after {
+            content: '';
+            position: absolute;
+            right: -20px;
+            top: 0;
+            width: 10px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        /* Project Grid */
+        .project-grid {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Project Card */
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            height: 100%;
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        /* Project Image */
+        .project-image {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+        
+        /* Project Overlay */
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        
+        .view-project {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+        
+        .project-card:hover .view-project {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .coming-soon {
+            opacity: 1;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .coming-soon-label {
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
+        }
+        
+        /* Project Info */
+        .project-info {
+            padding: 25px;
+        }
+        
+        .project-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--secondary);
+        }
+        
+        .project-info p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        /* View Project Button */
+        .btn-view {
+            display: inline-block;
+            color: var(--secondary);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .btn-view::after {
+            content: '→';
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-view:hover {
+            color: var(--primary);
+        }
+        
+        .btn-view:hover::after {
+            transform: translateX(5px);
+        }
+        
+        .btn-view.disabled {
+            color: #aaa;
+            cursor: not-allowed;
+        }
+        
+        .btn-view.disabled::after {
+            content: '';
+        }
+        
+        /* Hidden Projects */
+        .hidden-project {
+            display: none;
+        }
+        
+        /* Load More Button */
+        .projects-more-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .btn-load-more {
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            font-weight: 600;
+            padding: 12px 25px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .btn-load-more:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 102, 255, 0.2);
+        }
+        
+        .btn-load-more i {
+            transition: transform 0.3s ease;
+        }
+        
+        .btn-load-more:hover i {
+            transform: translateY(3px);
+        }
+        
+        .btn-load-more.hidden {
+            display: none;
+        }
+        
+        /* Discuss Project Button */
+        .btn-discuss {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            padding: 15px 35px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(0, 102, 255, 0.2);
+        }
+        
+        .btn-discuss:hover {
+            background: #0052cc;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(0, 102, 255, 0.3);
+            color: white;
+        }
+        
+        /* Animation styles for project items */
+        .project-item {
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .project-item.animate {
+            animation: projectFadeIn 0.5s forwards;
+        }
+        
+        @keyframes projectFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Enhanced carousel transitions */
+        .carousel-item {
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .carousel-item.active {
+            opacity: 1;
+            position: relative;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 991px) {
+            .projects {
+                padding: 80px 0;
+            }
+            
+            .project-image {
+                height: 220px;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .project-info {
+                padding: 20px;
+            }
+            
+            .project-info h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
@@ -1976,422 +2309,373 @@
 
 
     <!-- Projects Section -->
-    <section id="projects" class="projects section-spacing">
-        <div class="container">
-            <h2 class="section-title text-center">Featured Projects</h2>
-            <p class="section-subtitle text-center">Showcasing some of my best work across various technologies and
-                industries</p>
+<section id="projects" class="projects section-spacing">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="title-bar"></div>
+            <p class="section-subtitle">Showcasing my best work across various technologies and industries</p>
+        </div>
 
-            <div class="row g-4">
-                <!-- Project  -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div id="project1Carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="row g-4 project-grid">
+            <!-- Project 1 -->
+            <div class="col-lg-4 col-md-6 project-item">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-carousel carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="/assets/img/vesuto1.png" alt="Vesuto Diagnostics"
-                                        class="project-image w-100">
+                                    <img src="/assets/img/vesuto1.png" alt="Vesuto Diagnostics" class="img-fluid">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="/assets/img/vesuto3.png" alt="Vesuto Diagnostics"
-                                        class="project-image w-100">
+                                    <img src="/assets/img/vesuto3.png" alt="Vesuto Diagnostics" class="img-fluid">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="/assets/img/vesuto4.png" alt="Vesuto Diagnostics"
-                                        class="project-image w-100">
+                                    <img src="/assets/img/vesuto4.png" alt="Vesuto Diagnostics" class="img-fluid">
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Vesuto Diagnostics</h3>
-                            <p class="card-text">A comprehensive web platform for a medical diagnostics company,
-                                featuring patient portal, lab results, and appointment scheduling.</p>
-                            <!-- <div class="tech-stack">
-                                <span class="tech-badge">React</span>
-                                <span class="tech-badge">Node.js</span>
-                                <span class="tech-badge">MongoDB</span>
-                                <span class="tech-badge">Express</span>
-                            </div> -->
-                            <a href="https://vesutodiagnostics.com/" class="btn btn-primary" target="_blank">View
-                                Project</a>
+                        <div class="project-overlay">
+                            <a href="https://vesutodiagnostics.com/" class="view-project" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
                         </div>
                     </div>
-                </div>
-
-                <!-- Project  -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div id="project1Carousel" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/mmart1.png" alt="Maroko Mart"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="/assets/img/mmart2.png" alt="Maroko Mart"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="/assets/img/mmart3.png" alt="Maroko Mart"
-                                        class="project-image w-100">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Maroko Mart</h3>
-                            <p class="card-text">A feature-rich e-commerce platform offering a seamless shopping experience with product categorization, secure payment integration, and real-time inventory management.</p>
-                            <!-- <div class="tech-stack">
-                                <span class="tech-badge">React</span>
-                                <span class="tech-badge">Node.js</span>
-                                <span class="tech-badge">MongoDB</span>
-                                <span class="tech-badge">Express</span>
-                            </div> -->
-                            <a href="https://marokomart.com/" class="btn btn-primary" target="_blank">View
-                                Project</a>
-                        </div>
+                    <div class="project-info">
+                        <h3>Vesuto Diagnostics</h3>
+                        <p>A comprehensive web platform for a medical diagnostics company, featuring patient portal, lab results, and appointment scheduling.</p>
+                        <a href="https://vesutodiagnostics.com/" class="btn-view" target="_blank">View Project</a>
                     </div>
                 </div>
-
-                <!-- Project  -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div id="project2Carousel" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/vtech1.png" alt="Valortechhub Solutions"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="/assets/img/vtech2.png" alt="Valortechhub Solutions"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/vtech3.png" alt="Valortechhub Solutions"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="/assets/img/vtech4.png" alt="Valortechhub Solutions"
-                                        class="project-image w-100">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Valortechhub Solutions</h3>
-                            <p class="card-text">A dynamic corporate website for a tech solutions company with portfolio
-                                showcase, service listings, and client management system.</p>
-                            <!-- <div class="tech-stack">
-                                <span class="tech-badge">Vue.js</span>
-                                <span class="tech-badge">Django</span>
-                                <span class="tech-badge">PostgreSQL</span>
-                                <span class="tech-badge">AWS</span>
-                            </div> -->
-                            <a href="https://valortechhubsolutions.com/" class="btn btn-primary" target="_blank">View
-                                Project</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project  -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div id="project3Carousel" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/adminwrtng2.png" alt="Administa WritingHub"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/adminwrtng1.png" alt="Administa WritingHub"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/adminwrtng3.png" alt="Administa WritingHub"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/adminwrtng4.png" alt="Administa WritingHub"
-                                        class="project-image w-100">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Administa WritingHub</h3>
-                            <p class="card-text">A comprehensive team management platform for writing agencies with task
-                                tracking, payment processing, and deadline management.</p>
-                            <!-- <div class="tech-stack">
-                                <span class="tech-badge">React</span>
-                                <span class="tech-badge">Node.js</span>
-                                <span class="tech-badge">Firebase</span>
-                                <span class="tech-badge">Stripe API</span>
-                            </div> -->
-                            <a href="https://www.administawritinghub.com/" class="btn btn-primary" target="_blank">View
-                                Project</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project  -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div id="project4Carousel" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/kiungor1.png" alt="Kiungor Web App"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/kiungor2.png" alt="Kiungor Web App"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/kiungor3.png" alt="Kiungor Web App"
-                                        class="project-image w-100">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Kiungor Web App</h3>
-                            <p class="card-text">A support platform for immigrants featuring job listings, multilingual
-                                guides, translation services, and community connections.</p>
-                            <!-- <div class="tech-stack">
-                                <span class="tech-badge">Next.js</span>
-                                <span class="tech-badge">Express</span>
-                                <span class="tech-badge">MongoDB</span>
-                                <span class="tech-badge">i18n</span>
-                            </div> -->
-                            <a href="https://www.kiungor.com/" class="btn btn-primary" target="_blank">View Project</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project  -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div id="project5Carousel" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/vliquor1.png" alt="Valor Liquor Store"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/vliquor3.png" alt="Valor Liquor Store"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/vliquor2.png" alt="Valor Liquor Store"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/vliquor4.png" alt="Valor Liquor Store"
-                                        class="project-image w-100">
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Valor Liquor Store</h3>
-                            <p class="card-text">An e-commerce platform specializing in premium spirits with inventory
-                                management, delivery tracking, and secure payment integration.</p>
-                            <!-- <div class="tech-stack">
-                                <span class="tech-badge">Shopify</span>
-                                <span class="tech-badge">JavaScript</span>
-                                <span class="tech-badge">Liquid</span>
-                                <span class="tech-badge">Stripe</span>
-                            </div> -->
-                            <a href="https://valorliquorstore.co.ke/" class="btn btn-primary" target="_blank">View
-                                Project</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project  -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div id="project6Carousel" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/electrospark1.png" alt="Electrospark"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/electrospark2.png" alt="Electrospark"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/electrospark3.png" alt="Electrospark"
-                                        class="project-image w-100">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Electrospark</h3>
-                            <p class="card-text">A cutting-edge e-commerce marketplace for electronics featuring intuitive product comparison, detailed specifications, and exclusive deals on top tech brands with secure checkout.</p>
-                            <!-- <div class="tech-stack">
-                                <span class="tech-badge">WordPress</span>
-                                <span class="tech-badge">PHP</span>
-                                <span class="tech-badge">MySQL</span>
-                                <span class="tech-badge">jQuery</span>
-                            </div> -->
-                            <a href="https://shahvaibhav214.wixsite.com/electrospark/" class="btn btn-primary" target="_blank">View Project</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project  -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div id="project7Carousel" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/swiftkick1.png" alt="Swiftkicks Taekwondo"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/swiftkick2.png" alt="Swiftkicks Taekwondo"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/swiftkick3.png" alt="Swiftkicks Taekwondo"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/swiftkick4.png" alt="Swiftkicks Taekwondo"
-                                        class="project-image w-100">
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Swiftkicks Taekwondo</h3>
-                            <p class="card-text">A platform promoting personal growth and discipline through expert
-                                Taekwondo training and community engagement.</p>
-                            <!-- <div class="tech-stack">
-                                <span class="tech-badge">React</span>
-                                <span class="tech-badge">Tailwind CSS</span>
-                                <span class="tech-badge">Firebase</span>
-                                <span class="tech-badge">Vercel</span>
-                            </div> -->
-                            <a href="https://oj-swiftkick-taekwondo.vercel.app/" class="btn btn-primary"
-                                target="_blank">View Project</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project  -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div id="project8Carousel" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/kiungormobile1.jpeg" alt="Kiungor Mobile App"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/kiungormobile2.jpeg" alt="Kiungor Mobile App"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/kiungormobile3.jpeg" alt="Kiungor Mobile App"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/kiungormobile4.jpeg" alt="Kiungor Mobile App"
-                                        class="project-image w-100">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Kiungor Mobile App</h3>
-                            <p class="card-text">A cross-platform mobile application for immigrants with offline
-                                capability, real-time notifications, and location-based service recommendations.</p>
-                            <!-- <div class="tech-stack">
-                                <span class="tech-badge">React Native</span>
-                                <span class="tech-badge">Firebase</span>
-                                <span class="tech-badge">Redux</span>
-                                <span class="tech-badge">Maps API</span>
-                            </div> -->
-                            <a href="#" class="btn btn-primary disabled">Coming Soon</a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- Project  -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div id="project7Carousel" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/ashleydesign2.png" alt="Ashey scouts and Designs"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/ashleydesign1.png" alt="Ashey scouts and Designs"
-                                        class="project-image w-100">
-                                </div>
-                                
-                                
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Ashey scouts and Designs</h3>
-                            <p class="card-text">A dynamic e-commerce platform specializing in sporting goods, featuring intuitive product filtering, equipment customization, and specialized categories for athletes of all levels.</p>
-                            <!-- <div class="tech-stack">
-                                <span class="tech-badge">React</span>
-                                <span class="tech-badge">Tailwind CSS</span>
-                                <span class="tech-badge">Firebase</span>
-                                <span class="tech-badge">Vercel</span>
-                            </div> -->
-                            <a href="https://ashey-scouts-designs.vercel.app/" class="btn btn-primary"
-                                target="_blank">View Project</a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- Project  -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div id="project7Carousel" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/activezone1.png" alt="ActiveZone"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item active">
-                                    <img src="/assets/activezone2.png" alt="ActiveZone"
-                                        class="project-image w-100">
-                                </div>
-                                <div class="carousel-item active">
-                                    <img src="/assets/img/activezone3.png" alt="ActiveZone"
-                                        class="project-image w-100">
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">ActiveZone </h3>
-                            <p class="card-text">A dynamic e-commerce platform specializing in sporting goods, featuring intuitive product filtering, equipment customization, and specialized categories for athletes of all levels.</p>
-                            <!-- <div class="tech-stack">
-                                <span class="tech-badge">React</span>
-                                <span class="tech-badge">Tailwind CSS</span>
-                                <span class="tech-badge">Firebase</span>
-                                <span class="tech-badge">Vercel</span>
-                            </div> -->
-                            <a href="https://usagarrao95.wixsite.com/activezone/" class="btn btn-primary"
-                                target="_blank">View Project</a>
-                        </div>
-                    </div>
-                </div>
-
-                
             </div>
 
-            <div class="text-center mt-5">
-                <a href="#contact" class="btn btn-primary">Discuss Your Project</a>
+            <!-- Project 2 -->
+            <div class="col-lg-4 col-md-6 project-item">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-carousel carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="/assets/img/mmart1.png" alt="Maroko Mart" class="img-fluid">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="/assets/img/mmart2.png" alt="Maroko Mart" class="img-fluid">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="/assets/img/mmart3.png" alt="Maroko Mart" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://marokomart.com/" class="view-project" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Maroko Mart</h3>
+                        <p>A feature-rich e-commerce platform offering a seamless shopping experience with product categorization, secure payment integration, and real-time inventory management.</p>
+                        <a href="https://marokomart.com/" class="btn-view" target="_blank">View Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="col-lg-4 col-md-6 project-item">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-carousel carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="/assets/img/vtech1.png" alt="Valortechhub Solutions" class="img-fluid">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="/assets/img/vtech2.png" alt="Valortechhub Solutions" class="img-fluid">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="/assets/img/vtech3.png" alt="Valortechhub Solutions" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://valortechhubsolutions.com/" class="view-project" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Valortechhub Solutions</h3>
+                        <p>A dynamic corporate website for a tech solutions company with portfolio showcase, service listings, and client management system.</p>
+                        <a href="https://valortechhubsolutions.com/" class="btn-view" target="_blank">View Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="col-lg-4 col-md-6 project-item">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-carousel carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="/assets/img/adminwrtng2.png" alt="Administa WritingHub" class="img-fluid">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="/assets/img/adminwrtng1.png" alt="Administa WritingHub" class="img-fluid">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="/assets/img/adminwrtng3.png" alt="Administa WritingHub" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://www.administawritinghub.com/" class="view-project" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Administa WritingHub</h3>
+                        <p>A comprehensive team management platform for writing agencies with task tracking, payment processing, and deadline management.</p>
+                        <a href="https://www.administawritinghub.com/" class="btn-view" target="_blank">View Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="col-lg-4 col-md-6 project-item">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-carousel carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="/assets/img/kiungor1.png" alt="Kiungor Web App" class="img-fluid">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="/assets/img/kiungor2.png" alt="Kiungor Web App" class="img-fluid">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="/assets/img/kiungor3.png" alt="Kiungor Web App" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://www.kiungor.com/" class="view-project" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Kiungor Web App</h3>
+                        <p>A support platform for immigrants featuring job listings, multilingual guides, translation services, and community connections.</p>
+                        <a href="https://www.kiungor.com/" class="btn-view" target="_blank">View Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="col-lg-4 col-md-6 project-item">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-carousel carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="/assets/img/vliquor1.png" alt="Valor Liquor Store" class="img-fluid">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="/assets/img/vliquor3.png" alt="Valor Liquor Store" class="img-fluid">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="/assets/img/vliquor2.png" alt="Valor Liquor Store" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://valorliquorstore.co.ke/" class="view-project" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Valor Liquor Store</h3>
+                        <p>An e-commerce platform specializing in premium spirits with inventory management, delivery tracking, and secure payment integration.</p>
+                        <a href="https://valorliquorstore.co.ke/" class="btn-view" target="_blank">View Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 7 -->
+            <div class="col-lg-4 col-md-6 project-item">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-carousel carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="/assets/img/electrospark1.png" alt="Electrospark" class="img-fluid">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="/assets/img/electrospark2.png" alt="Electrospark" class="img-fluid">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="/assets/img/electrospark3.png" alt="Electrospark" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://shahvaibhav214.wixsite.com/electrospark/" class="view-project" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Electrospark</h3>
+                        <p>A cutting-edge e-commerce marketplace for electronics featuring intuitive product comparison, detailed specifications, and exclusive deals on top tech brands with secure checkout.</p>
+                        <a href="https://shahvaibhav214.wixsite.com/electrospark/" class="btn-view" target="_blank">View Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 8 -->
+            <div class="col-lg-4 col-md-6 project-item">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-carousel carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="/assets/img/swiftkick1.png" alt="Swiftkicks Taekwondo" class="img-fluid">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="/assets/img/swiftkick2.png" alt="Swiftkicks Taekwondo" class="img-fluid">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="/assets/img/swiftkick3.png" alt="Swiftkicks Taekwondo" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://oj-swiftkick-taekwondo.vercel.app/" class="view-project" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Swiftkicks Taekwondo</h3>
+                        <p>A platform promoting personal growth and discipline through expert Taekwondo training and community engagement.</p>
+                        <a href="https://oj-swiftkick-taekwondo.vercel.app/" class="btn-view" target="_blank">View Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 9 -->
+            <div class="col-lg-4 col-md-6 project-item">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-carousel carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="/assets/img/kiungormobile1.jpeg" alt="Kiungor Mobile App" class="img-fluid">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="/assets/img/kiungormobile2.jpeg" alt="Kiungor Mobile App" class="img-fluid">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="/assets/img/kiungormobile3.jpeg" alt="Kiungor Mobile App" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-overlay coming-soon">
+                            <div class="coming-soon-label">
+                                <i class="fas fa-hourglass-half"></i>
+                                <span>Coming Soon</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Kiungor Mobile App</h3>
+                        <p>A cross-platform mobile application for immigrants with offline capability, real-time notifications, and location-based service recommendations.</p>
+                        <a href="#" class="btn-view disabled">Coming Soon</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden Projects (initially hidden) -->
+            <!-- Project 10 -->
+            <div class="col-lg-4 col-md-6 project-item hidden-project">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-carousel carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="/assets/img/ashleydesign2.png" alt="Ashey Scouts and Designs" class="img-fluid">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="/assets/img/ashleydesign1.png" alt="Ashey Scouts and Designs" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://ashey-scouts-designs.vercel.app/" class="view-project" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Ashey Scouts and Designs</h3>
+                        <p>A dynamic e-commerce platform specializing in sporting goods, featuring intuitive product filtering, equipment customization, and specialized categories for athletes of all levels.</p>
+                        <a href="https://ashey-scouts-designs.vercel.app/" class="btn-view" target="_blank">View Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 11 -->
+            <div class="col-lg-4 col-md-6 project-item hidden-project">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-carousel carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="/assets/img/activezone1.png" alt="ActiveZone" class="img-fluid">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="/assets/img/activezone2.png" alt="ActiveZone" class="img-fluid">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="/assets/img/activezone3.png" alt="ActiveZone" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://usagarrao95.wixsite.com/activezone/" class="view-project" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>ActiveZone</h3>
+                        <p>A dynamic e-commerce platform specializing in sporting goods, featuring intuitive product filtering, equipment customization, and specialized categories for athletes of all levels.</p>
+                        <a href="https://usagarrao95.wixsite.com/activezone/" class="btn-view" target="_blank">View Project</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+
+        <div class="projects-more-container">
+            <button id="loadMoreProjects" class="btn-load-more">
+                <span>View More Projects</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="#contact" class="btn-discuss">
+                <span>Discuss Your Project</span>
+                <i class="fas fa-comments"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+
 
     <!-- Contact Section -->
     <section id="contact" class="contact section-spacing">
@@ -2663,6 +2947,60 @@
             }
         });
     </script>
+
+    <!-- projects -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all projects and the load more button
+            const hiddenProjects = document.querySelectorAll('.hidden-project');
+            const loadMoreBtn = document.getElementById('loadMoreProjects');
+            
+            // Show hidden projects when clicking "View More"
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', function() {
+                    let projectsShown = 0;
+                    
+                    hiddenProjects.forEach(project => {
+                        project.classList.remove('hidden-project');
+                        project.classList.add('animate');
+                        projectsShown++;
+                        
+                        // Remove animation class after animation completes
+                        setTimeout(() => {
+                            project.classList.remove('animate');
+                        }, 500);
+                    });
+                    
+                    // Hide the "View More" button after showing all projects
+                    if (projectsShown > 0) {
+                        loadMoreBtn.classList.add('hidden');
+                    }
+                });
+            }
+            
+            // Carousel functionality for project images
+            const projectCarousels = document.querySelectorAll('.project-carousel');
+            projectCarousels.forEach(carousel => {
+                // Auto-scroll through images
+                let currentSlide = 0;
+                const slides = carousel.querySelectorAll('.carousel-item');
+                
+                // Only setup carousel if more than one slide
+                if (slides.length > 1) {
+                    setInterval(() => {
+                        // Hide current slide
+                        slides[currentSlide].classList.remove('active');
+                        
+                        // Move to next slide
+                        currentSlide = (currentSlide + 1) % slides.length;
+                        
+                        // Show new slide
+                        slides[currentSlide].classList.add('active');
+                    }, 4000);
+                }
+            });
+        });
+        </script>
 </body>
 
 </html>
