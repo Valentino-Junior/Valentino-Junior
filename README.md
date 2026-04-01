@@ -20,15 +20,6 @@
 
 ---
 
-### 🚀 Featured Work
-- [**Kiungor Mobile App**](https://github.com/Valentino-Junior) - React Native app for immigrants with **subscription billing**, real-time language assistance, and community listings.
-- [**DJ Niido**](https://djniido.com/) - A professional platform for DJ services, event booking, and a specialized DJ Academy.
-- [**Mastermind Apex Hub**](https://mastermindapexhub.com/) - Premier academic writing platform with a comprehensive tracking dashboard.
-- [**CIRIS**](https://www.kiungor.com/) - Advanced document validation infrastructure reducing processing errors by 40-60%.
-- [**ActiveZone**](https://github.com/Valentino-Junior) - High-performance mobile POS and business management system.
-
----
-
 ### 👨‍💻 Technical Toolkit
 
 #### Programming Languages
