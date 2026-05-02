@@ -6,7 +6,7 @@
   <img src="https://img.icons8.com/color/48/000000/star--v1.png"/>
 </div>
 
-<h1 align="center">Valentine Junior</h1>
+<h1 align="center">Valentino Junior</h1>
 <p align="center">
   <img src="https://readme-typing-svg.herokuapp.com/?lines=Full%20Stack%20%26%20Mobile%20App%20Developer;Data%20Analyst%20%26%20Visualization%20Expert;Specializing%20in%20FastAPI%2C%20React%20Native%20%26%20Python;Contact%3A%20v.ochieng.junior%40gmail.com&font=Fira%20Code&center=true&width=550&height=50&color=0066FF&vCenter=true&size=24" alt="Typing SVG" />
 </p>
